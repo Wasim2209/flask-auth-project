@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>show page</h1>
+<table class="table table-danger">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>Contact</th>
+        <th>Image</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+        <td>{{row[2]}}</td>
+        <td>{{row[4]}}</td>
+        <td><img src="/static/image/{{row[5]}}" alt="image...." height="40" width="40" style="border-radius: 50%;"></td>
+        <td><a href="/delete/{{row[0]}}">Delete</a></td>
+        <td><a href="/update/{{row[0]}}">Update</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-2"><h1></h1></div>
+        <div class="col-8">
+            {% if mes is defined %}
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <p>{{mes}}</p>
+            </div>
+            {% endif %}
+            <form action="/User-Page" method="post">
+            <table class="table mt-3 text-center">
+                <tr>
+                    <td colspan="2"><h1>User page</h1></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">E-mail :</label></td>
+                    <td><input type="email" name="name" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Password :</label></td>
+                    <td><input type="password" name="password" class="form-control" id="vps"><i class="fa-solid fa-eye-slash" id="lockicon" style="position: absolute; margin: -28px 0 0 250px;cursor: pointer;"></i></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" id="sbtn" class="btn btn-danger">User-Login</button></td>
+                </tr> 
+            </table>
+        </form>
+            <a href="/registration">New User Registration</a>
+            <a href="/forget">forget password</a>
+            <a href="/User-page">User Page</a>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+<script>
+    i=0;
+    lockicon.onclick=togglePassword;
+    function togglePassword(){
+        if(i==0) {
+            vps.type='text';
+            lockicon.className="fa-solid fa-eye";
+            i=1;
+        }
+        else {
+            vps.type ='password';
+            lockicon.className="fa-solid fa-eye-slash";
+            i=0;
+        }
+    }
+</script>
+{%endblock%}

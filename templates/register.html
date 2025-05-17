@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-2">
+            <div></div>
+        </div>
+        <div class="col-8">
+            <form action="/reg" method="post" enctype="multipart/form-data">
+                <table class="table mt-3 text-center">
+                    <tr>
+                        <td colspan="2">
+                            <h1>Registration page</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Name :</label></td>
+                        <td><input type="text" name="vnm" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">E-mail :</label></td>
+                        <td><input type="email" name="vem" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Password :</label></td>
+                        <td><input type="password" name="vpass" id="vpass" class="form-control"><i class="fa-solid fa-eye-slash" id="lockicon" style="position: absolute; margin: -28px 0 0 280px;"></i></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Contact :</label></td>
+                        <td><input type="number" name="vcon" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Image :</label></td>
+                        <td><input type="file" name="vfile" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" id="sbtn" class="btn btn-danger">Registration</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <a href="login">Already I have a menber !</a>
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+<script>
+    i=0;
+    lockicon.onclick=togglePassword;
+    function togglePassword(){
+        if(i==0) {
+            vpass.type='text';
+            lockicon.className="fa-solid fa-eye";
+            i=1;
+        }
+        else {
+            vpass.type ='password';
+            lockicon.className="fa-solid fa-eye-slash";
+            i=0;
+        }
+    }
+</script>
+{%endblock%}

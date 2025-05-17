@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>home page</h1>
+    {{mes}}
+    {% if msg is defined %}
+        <h2>welcome {{mes[1]}}</h2>
+        <img src="../static/image/{{mes[5]}}" height="100px" width="100px">
+    {% endif %}
+    <a href="/logout" class="btn btn-danger">Log-Out</a>
+{% endblock %}
